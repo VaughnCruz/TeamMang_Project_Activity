@@ -1,20 +1,18 @@
 import urllib.parse
 import requests
 
-main_api = "https://www.mapquestapi.com/directions/v2/route?" 
-key = "GnNc8nFpuHMZitizAMSnQIzZVl0cmeTG"
+main_api = "https://www.mapquestapi.com/directions/v2/route?"
+key = "GnNc8nFpuHMZitizAMSnQIzZVl0cmeTG" 
 
 while True:
-    orig = input("(quit or q to quit) Starting Location: ")
+    orig = input ("Starting Point/city :")
     if orig == "quit" or orig == "q":
         break
-
-    dest = input("(quit or q to quit) Destination: ")
+    dest = input("Destination Point/city :")
     if dest == "quit" or dest == "q":
         break
-
-    url = main_api + urllib.parse.urlencode({"key": key, "from":orig, "to":dest})
-    print("URL: " + (url))
+    url = main_api + urllib.parse.urlencode({"key":key, "from":orig, "to":dest})
+    print ("URL ", (url))
     json_data = requests.get(url).json()
     json_status = json_data["info"]["statuscode"]
     if json_status == 0:
@@ -46,7 +44,8 @@ while True:
         print("=============================================")
         print("Trip Duration:   " + (json_data["route"]["formattedTime"]))
         print("Kilometers:      " + str("{:.2f}".format((json_data["route"]["distance"])*1.61)))
-        print("Fuel Used (Ltr): " + str("{:.2f}".format((json_data["route"]["fuelUsed"])*3.78)))
+        print("-----------------Fuel Used in different units-----------------")
+        print("Fuel Used(ltr):      " + str("{:.2f}".format((json_data["route"]["distance"])*3.78)))
         print("=============================================")
          # END 
 
