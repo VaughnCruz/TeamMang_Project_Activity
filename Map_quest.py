@@ -2,6 +2,7 @@ import urllib.parse
 import requests
 
 main_api = "https://www.mapquestapi.com/directions/v2/route?"
+# USE YOUR APP KEY
 key = "GnNc8nFpuHMZitizAMSnQIzZVl0cmeTG" 
 
 while True:
