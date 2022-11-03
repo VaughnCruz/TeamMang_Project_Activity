@@ -44,8 +44,8 @@ def onClick():
                 "\n================================================================================="\
                 + "\nDirections from: " + (orig.get()) + " to " + (dest.get())\
                 + "\nTrip Duration: " + (json_data["route"]["formattedTime"])\
-                + "\nKilometers: " + str("{:.2f}".format((json_data["route"]["distance"] * 1.6)))\
-                + "\nFuel Used (Ltr): " + str("{:.3f}".format((json_data["route"]["fuelUsed"]*3.78)))\
+                + "\nKilometers: " + str("{:.2f}".format((json_data["route"]["distance"]) * 1.6))\
+                + "\nFuel Used (Ltr): " + str("{:.3f}".format((json_data["route"]["fuelUsed"])*3.78))\
                 + "\n================================================================================="\
                 + "\nDetailed Information of travel"\
                 + "\nFrom country of: " + (json_data["route"]["locations"][0]["adminArea1"])\
